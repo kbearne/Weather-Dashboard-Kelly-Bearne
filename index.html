@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <!-- link to css stylesheet -->
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <title>Weather Dashboard</title>
+</head>
+
+<body>
+  <header class="container-fluid text-center text-white bg-dark p-2 weather-header">
+    <h1>Weather Dashboard</h1>
+  </header>
+
+  <!-- max-width for ultra wide resolutions -->
+  <main class="container-fluid" style="max-width: 1400px">
+    <section class="row">
+      <aside class="col-lg-3 pb-3">
+        <h2 id="form-heading" class="mt-1 h3 form-label">
+          Search for a City:
+        </h2>
+        <form id="search-form" class="form">
+          <article class="form-inline form-group">
+            <article class="input-group">
+              <input class="form-input weather-search" type="text" id="search-input" placeholder="London"
+                aria-labelledby="form-heading" aria-controls="today forecast" />
+              <article class="input-group-append">
+                <button type="submit" class="btn search-button" id="search-button" aria-label="submit search">
+                  Search
+                </button>
+                <hr class="hr weather-hr" />
+              </article>
+            </article>
+          </article>
+        </form>
+        <article class="list-group" id="history"></article>
+      </aside>
+
+      <section class="col-lg-9 pb-3">
+        <section id="today" class="mt-3" role="region" aria-live="polite"></section>
+        <section id="forecast" class="row mt-3" role="region" aria-live="polite"></section>
+      </section>
+    </section>
+  </main>
+
+  <!-- Day.js reference -->
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+  <!-- jQuery reference -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- JS script reference -->
+  <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
