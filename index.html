@@ -5,9 +5,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <!-- link to css stylesheet -->
-  <link rel="stylesheet" href="./assets/css/style.css" />
   <title>Weather Dashboard</title>
+  <!-- bootstrap css (CDN) reference -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- custom css stylesheet reference -->
+  <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
 <body>
@@ -23,20 +25,20 @@
           Search for a City:
         </h2>
         <form id="search-form" class="form">
-          <article class="form-inline form-group">
-            <article class="input-group">
+          <div class="form-inline form-group">
+            <div class="input-group">
               <input class="form-input weather-search" type="text" id="search-input" placeholder="London"
                 aria-labelledby="form-heading" aria-controls="today forecast" />
-              <article class="input-group-append">
+              <div class="input-group-append">
                 <button type="submit" class="btn search-button" id="search-button" aria-label="submit search">
                   Search
                 </button>
                 <hr class="hr weather-hr" />
-              </article>
-            </article>
-          </article>
+              </div>
+            </div>
+          </div>
         </form>
-        <article class="list-group" id="history"></article>
+        <div class="list-group" id="history"></div>
       </aside>
 
       <section class="col-lg-9 pb-3">

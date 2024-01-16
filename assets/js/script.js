@@ -1,22 +1,7 @@
-/* When a user searches for a city they are presented with current and future conditions for that city and that city is added to the search history.
-When a user views the current weather conditions for that city they are presented with:
-    The city name
-    The date
-    An icon representation of weather conditions
-    The temperature
-    The humidity
-    The wind speed
-When a user views future weather conditions for that city they are presented with a 5-day forecast that displays:
-    The date
-    An icon representation of weather conditions
-    The temperature
-    The humidity
-When a user clicks on a city in the search history they are again presented with current and future conditions for that city. */
-
 // assign API key to variable (NOT best practice - should be secured!)
 const APIKey = "e42ebadb1c3fe400de41f9525c78db29";
 
-// day.js
+// store current date and time (utilising day.js)
 var now = dayjs();
 
 // global variables
@@ -94,3 +79,13 @@ function displayCurrentWeather(currentWeatherData) {
     // populate todayEl with formatted output
     todayEl.innerHTML = displayCurrentWeather;
 };
+
+/* TODO: future conditions for that city
+
+When a user views future weather conditions for that city they are presented with a 5-day forecast that displays:
+    The date
+    An icon representation of weather conditions
+    The temperature
+    The humidity
+
+When a user clicks on a city in the search history they are again presented with current and future conditions for that city. */
