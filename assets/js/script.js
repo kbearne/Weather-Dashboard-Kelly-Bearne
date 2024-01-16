@@ -16,8 +16,13 @@ When a user clicks on a city in the search history they are again presented with
 // assign API key to variable (NOT best practice - should be secured!)
 const APIKey = "e42ebadb1c3fe400de41f9525c78db29";
 
+// day.js
+var now = dayjs();
+
 // global variables
 const searchButton = document.getElementById('search-button');
+const todayEl = document.getElementById('today');
+const forecastEl = document.getElementById('forecast');
 
 // listen for a user click on the search button
 searchButton.addEventListener('click', function (event) {
@@ -72,16 +77,20 @@ function executeUserSearch(userInputValue) {
         });
 };
 
+// receives executeUserSearch functon results and outputs it onto the page for the user
 function displayCurrentWeather(currentWeatherData) {
-    // successfully passes current weather data to displayCurrentWeather function
     console.log(currentWeatherData);
-};
 
-// convert returned API data into HTML output and display on page
-// user presented with current and future conditions for that city
-/*  The city name
-    The date
-    An icon representation of weather conditions
-    The temperature
-    The humidity
-    The wind speed */
+    // format API results (for current weather) and store in a variable. variable 'now' utilises day.js to pull todays date
+    const displayCurrentWeather = `
+    <h2>City name: ${currentWeatherData.name}</h2>
+    <h3>Date: ${now}</h3>
+    <h3>ICON: ${currentWeatherData.weather[0].icon}</h3>
+    <h3>Temperature: ${currentWeatherData.main.temp}</h3>
+    <h3>Humidity: ${currentWeatherData.main.humidity}</h3>
+    <h3>Wind speed: ${currentWeatherData.wind.speed}</h3>
+    `;
+
+    // populate todayEl with formatted output
+    todayEl.innerHTML = displayCurrentWeather;
+};
