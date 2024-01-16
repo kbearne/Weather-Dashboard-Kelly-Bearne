@@ -28,18 +28,24 @@ searchButton.addEventListener('click', function (event) {
     let userInput = document.getElementById('search-input');
     let userInputValue = userInput.value;
 
-    // check that user input isn't blank
+    // get search history div
+    const searchHistory = document.getElementById('history');
+
+    // check that user input isn't blank; if it is then prompt them to enter valid input
     if (userInputValue.trim() === "") {
         alert("Value can't be blank, please enter something to search for!");
         return;
     } else {
+        // add item to search history
+        searchHistory.innerHTML += `${userInputValue}\n`;
+
         // call function to execute API call
-        callAPI(userInputValue);
+        executeUserSearch(userInputValue);
     };
 });
 
-
-function callAPI(userInputValue) {
+// function to execute user search (calling API results), which is passed when a user query passes from the event listener (on search button click)
+function executeUserSearch(userInputValue) {
     // base URL for API calls
     const queryURL = `http://api.openweathermap.org/geo/1.0/direct?q=${userInputValue}&appid=${APIKey}`;
 
@@ -57,18 +63,25 @@ function callAPI(userInputValue) {
                 .then(function (response) {
                     return response.json()
                 })
-                .then(function (data) {
-                    console.log(data)
+                .then(function (currentWeatherData) {
+                    displayCurrentWeather(currentWeatherData);
                 })
                 .catch(function (error) {
                     console.error('API fetch operation has failed with the following error:', error);
                 });
-            // Create CODE HERE to Log the queryURL
-            // Create CODE HERE to log the resulting object
-            // Create CODE HERE to calculate the temperature (converted from Kelvin)
-            // Create CODE HERE to transfer content to HTML
-            // Hint: To convert from Kelvin to Celsius: C = K - 273.15
-            // Create CODE HERE to dump the temperature content into HTML
-
         });
 };
+
+function displayCurrentWeather(currentWeatherData) {
+    // successfully passes current weather data to displayCurrentWeather function
+    console.log(currentWeatherData);
+};
+
+// convert returned API data into HTML output and display on page
+// user presented with current and future conditions for that city
+/*  The city name
+    The date
+    An icon representation of weather conditions
+    The temperature
+    The humidity
+    The wind speed */
