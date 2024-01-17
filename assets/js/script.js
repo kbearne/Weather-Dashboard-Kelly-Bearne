@@ -66,11 +66,14 @@ function executeUserSearch(userInputValue) {
 function displayCurrentWeather(currentWeatherData) {
     console.log(currentWeatherData);
 
+    // fetch icon and store in variable (later used in img URL below)
+    const icon = currentWeatherData.weather[0].icon;
+
     // format API results (for current weather) and store in a variable. variable 'now' utilises day.js to pull todays date
     const displayCurrentWeather = `
     <h2>City name: ${currentWeatherData.name}</h2>
     <h3>Date: ${now}</h3>
-    <h3>ICON: ${currentWeatherData.weather[0].icon}</h3>
+    <img src="https://openweathermap.org/img/wn/${icon}@2x.png">
     <h3>Temperature: ${currentWeatherData.main.temp}</h3>
     <h3>Humidity: ${currentWeatherData.main.humidity}</h3>
     <h3>Wind speed: ${currentWeatherData.wind.speed}</h3>
