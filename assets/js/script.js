@@ -47,9 +47,9 @@ function executeUserSearch(userInputValue) {
         .then(function (data) {
             console.log(data);
 
-            const newQueryUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${data[0].lat}&lon=${data[0].lon}&appid=${APIKey}`
+            const currentWeatherURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${data[0].lat}&lon=${data[0].lon}&appid=${APIKey}`
 
-            fetch(newQueryUrl)
+            fetch(currentWeatherURL)
                 .then(function (response) {
                     return response.json()
                 })
@@ -67,16 +67,16 @@ function displayCurrentWeather(currentWeatherData) {
     console.log(currentWeatherData);
 
     // fetch icon and store in variable (later used in img URL below)
-    const icon = currentWeatherData.weather[0].icon;
+    const icon = currentWeatherData.list[0].weather[0].icon;
 
     // format API results (for current weather) and store in a variable. variable 'now' utilises day.js to pull todays date
     const displayCurrentWeather = `
-    <h2>City name: ${currentWeatherData.name}</h2>
-    <h3>Date: ${now}</h3>
+    <h3>City name: ${currentWeatherData.city.name}</h3> 
     <img src="https://openweathermap.org/img/wn/${icon}@2x.png">
-    <h3>Temperature: ${currentWeatherData.main.temp}</h3>
-    <h3>Humidity: ${currentWeatherData.main.humidity}</h3>
-    <h3>Wind speed: ${currentWeatherData.wind.speed}</h3>
+    <h4>Date: ${now}</h4>
+    <h4>Temperature: ${currentWeatherData.list[0].main.temp}</h4>
+    <h4>Humidity: ${currentWeatherData.list[0].main.humidity}</h4>
+    <h4>Wind speed: ${currentWeatherData.list[0].wind.speed}</h4>
     `;
 
     // populate todayEl with formatted output
