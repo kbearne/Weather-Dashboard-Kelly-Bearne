@@ -1,0 +1,65 @@
+/* Add or update these styles in your style.css file */
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+.weather-header {
+    font-size: 24px;
+}
+
+/* form and search styling */
+#form-heading {
+    font-size: 20px;
+}
+
+/* aside items positioning (to the left) */
+aside {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.weather-search {
+    width: 100%;
+}
+
+.search-button {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.weather-hr {
+    margin-top: 10px;
+}
+
+/* search history styling */
+.list-group {
+    max-height: 400px;
+    overflow-y: auto;
+    width: 100%;
+}
+
+/* today and 5 day forcast styling */
+#today,
+#forecast {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+/* media break for mobile devices */
+@media (max-width: 767px) {
+    .weather-search {
+        width: 100%;
+    }
+
+    .search-button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .list-group {
+        max-height: none;
+    }
+}
