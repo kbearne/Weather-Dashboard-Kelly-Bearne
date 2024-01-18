@@ -75,12 +75,35 @@ function displayCurrentWeather(currentWeatherData) {
     <img src="https://openweathermap.org/img/wn/${icon}@2x.png">
     <h4>Date: ${now}</h4>
     <h4>Temperature: ${currentWeatherData.list[0].main.temp}</h4>
-    <h4>Humidity: ${currentWeatherData.list[0].main.humidity}</h4>
     <h4>Wind speed: ${currentWeatherData.list[0].wind.speed}</h4>
+    <h4>Humidity: ${currentWeatherData.list[0].main.humidity}</h4>
     `;
 
     // populate todayEl with formatted output
     todayEl.innerHTML = displayCurrentWeather;
+
+    // fetch icon and store in variable (later used in img URL below)
+    const icon2 = currentWeatherData.list[0].weather[0].icon;
+
+    // format API results (for 5 day forecast) and store in a variable
+    const displayFutureWeather = `
+    <h3>Date: ${currentWeatherData.list[0].dt_txt}</h3> 
+    <img src="https://openweathermap.org/img/wn/${icon2}@2x.png">
+    <h4>Date: ${now}</h4>
+    <h4>Temperature: ${currentWeatherData.list[0].main.temp}</h4>
+    <h4>Wind speed: ${currentWeatherData.list[0].wind.speed}</h4>
+    <h4>Humidity: ${currentWeatherData.list[0].main.humidity}</h4>
+    `;
+
+    // populate forecastEl with formatted output
+    forecastEl.innerHTML = displayFutureWeather;
+
+    // TODO: needs to loop and append for all five days
+    // pull first array item from list where date is +1 days, +2 days, etc
+    for (let i = 0; i < 5; i++) {
+        //
+    };
+    
 };
 
 /* TODO: future conditions for that city
