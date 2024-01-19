@@ -98,10 +98,39 @@ function displayCurrentWeather(currentWeatherData) {
     // populate forecastEl with formatted output
     forecastEl.innerHTML = displayFutureWeather;
 
-    // TODO: needs to loop and append for all five days
-    // pull first array item from list where date is +1 days, +2 days, etc
-    for (let i = 0; i < 5; i++) {
-        //
+    // format day.js value to match syntax of returned API list dates
+    const currentDate = now.format('YYYY-MM-DD');
+
+    // store length of currentWeatherData (array results)
+    let length = currentWeatherData.list.length;
+
+    // count for dates being looped (to find first unique instance), this starts at -1 because this is the first future date
+    let dateCount = -1;
+
+    // TODO: loop and append weather to div for five day forecast
+    for (let i = 0; i < length; i++) {
+        // loop weather dates returned by API and format them to display only the date (to match the format of the day.js current date) and the day
+        const itemWeatherDateTime = currentWeatherData.list[i].dt_txt;
+        const itemWeatherDate = itemWeatherDateTime.substring(0, itemWeatherDateTime.indexOf(' '));
+
+        // compare current date and item being looped (utilising day.js library)
+        const date1 = dayjs(currentDate);
+        const date2 = dayjs(itemWeatherDate)
+        const dateDifference = dayjs(date1).diff(date2, 'day');
+
+        //console.log(`Currently looping date ${itemWeatherDate} with a current date difference of ${dateDifference}`);
+
+        // select first instances of date diff -1 > -5
+        if (dateCount === dateDifference) {
+            console.log(`Currently looping date ${itemWeatherDate}`);
+            dateCount--;
+        }
+
+        // get currently looped date day and add one to it using find function
+            // dateDifference.find();
+
+        // if previous date (day) -1 from current date (day)
+            // append first instance to forecastEl
     };
     
 };

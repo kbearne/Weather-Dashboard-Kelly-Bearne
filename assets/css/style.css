@@ -46,6 +46,10 @@ aside {
     border: 1px solid #ddd;
     padding: 15px;
     margin-bottom: 20px;
+    /* set smaller image size for weather thumbnails */
+    img {
+        max-width: 15%
+    };
 }
 
 /* media break for mobile devices */

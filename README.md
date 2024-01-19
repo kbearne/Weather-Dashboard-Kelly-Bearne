@@ -3,7 +3,7 @@ A weather dashboard with form inputs, which utilises OpenWeather API to retrieve
 
 ## Description
 
-This project fullfils the criteria of building a browser application that allows users to view current and future weather for a chosen city (which they search for).
+This project fullfils the criteria of building a browser application that allows users to view the current and future weather (5 day) for a city that they search for (via the search field).
 
 ![Screenshot of the application](./assets/images/app-screenshot.png)
 
@@ -22,6 +22,8 @@ The application displays the current date and time by utilising day.js library.
 ## Built with
 
 ![Static Badge](https://img.shields.io/badge/HTML-blue) ![Static Badge](https://img.shields.io/badge/CSS-blue) ![Static Badge](https://img.shields.io/badge/JavaScript-blue)
+
+Utilises OpenWeather map API: https://openweathermap.org/forecast5
 
 ## License
 
